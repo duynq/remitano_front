@@ -1,0 +1,59 @@
+@import '@/assets/styles/varibles.scss';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.paginationPrev,
+.paginationNext,
+.paginationNum {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  transition: 0.2s linear;
+  border-radius: 5px;
+  background: $palette-gray-edf;
+  white-space: nowrap;
+  color: $palette-gray-33;
+  border: solid 1px $palette-gray-99;
+  padding: 8px 10px;
+  background: linear-gradient(
+    to bottom,
+    $palette-white-ff 0%,
+    $palette-gray-ee 100%
+  );
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background: $palette-orange-ffa0;
+    border: solid 1px $palette-orange-ffa0;
+    color: $palette-white-ff;
+  }
+}
+
+.paginationPrev.isDisabled,
+.paginationNext.isDisabled {
+  background: $palette-gray-ee;
+  border: solid 1px $palette-gray-ee;
+  color: $palette-gray-cc;
+  pointer-events: none;
+}
+
+.paginationNum {
+  justify-content: center;
+  min-width: 30px;
+  &.isCurrent {
+    background: $palette-orange-ff7f;
+    border: solid 1px $palette-orange-ff7f;
+    color: $palette-white-ff;
+  }
+}
+
+.paginationOmit {
+  align-self: end;
+  margin: 0 7px;
+}
