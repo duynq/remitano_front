@@ -34,7 +34,8 @@
     "recoil": "^0.7.7",
     "sass": "^1.66.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "5.4.3"
+    "typescript": "5.4.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

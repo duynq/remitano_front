@@ -6,7 +6,7 @@ import {
 } from '@/utils/pagination'
 import styles from './styles.module.scss'
 import clsx from 'clsx'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 import { FIRST_PAGE } from '@/constants'
 
 interface BasePaginationProps {
@@ -65,7 +65,7 @@ const BasePagination = ({
     const result: Page[] = []
     range.forEach((page) => {
       result.push({
-        id: v4(),
+        id: uuidv4(),
         name: page,
         isDisabled: page === currentPage,
       })
