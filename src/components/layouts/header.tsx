@@ -32,7 +32,7 @@ const Header = ({ title }: HeaderProps) => {
     response: AxiosResponse<AccountLoginResponse>,
   ) => {
     const userAuth = {
-      token: response?.token
+      token: response?.data?.token
     }
 
     const userInfo = userAuth?.token ? jwtDecode(userAuth.token) : null
@@ -62,9 +62,9 @@ const Header = ({ title }: HeaderProps) => {
       setMessage('')
     } catch (error) {
       if (type === 'login') {
-        setMessage(error?.response?.data?.error)
+        setMessage((error as any)?.response?.data?.error)
       } else {
-        setMessage(error?.response?.data?.detail?.email[0])
+        setMessage((error as any)?.response?.data?.detail?.email[0])
       }
     }
   }

@@ -14,6 +14,7 @@ const alert = (message: string) => {
 
 const SharePage = withUserAuthentication(() => {
   const message = useRecoilValue(messageContent)
+
   return <>
     {message && alert(message)}
     <Header title='Funny Movies' />

@@ -19,7 +19,7 @@ const Form = () => {
       router.push('/')
       setMessage('')
     } catch (error) {
-      setMessage(error?.response?.data?.detail?.url[0])
+      setMessage((error as any)?.response?.data?.detail?.url[0])
     }
   }
 

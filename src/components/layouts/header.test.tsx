@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/jest-globals';
 import '@testing-library/jest-dom';
-import { render, act } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { RecoilRoot } from 'recoil'
 import Header from '@/components/layouts/header'
 import { userInfo } from '@/store'
@@ -22,24 +22,22 @@ jest.mock('@/store', () => ({
 
 describe('Header', () => {
   it('renders correctly', () => {
-    const { getByText } = render(
+    render(
       <RecoilRoot>
         <Header title="Test Title" />
       </RecoilRoot>
     )
 
-    expect(getByText('Test Title')).toBeInTheDocument()
+    expect(screen.getByText('Test Title')).toBeInTheDocument()
   })
 
   it('sets email state correctly when userInfo changes', async () => {
-    const { getByText } = render(
+    render(
       <RecoilRoot initializeState={(snap) => snap.set(userInfo, {email: 'new@example.com'})}>
         <Header title="Test Title" />
       </RecoilRoot>
     )
 
-    await act(async () => {})
-
-    expect(getByText('Welcome new@example.com')).toBeInTheDocument()
+    expect(screen.getByText('Welcome new@example.com')).toBeInTheDocument()
   })
 })
