@@ -31,12 +31,14 @@ const Header = ({ title }: HeaderProps) => {
   const handleRegisterResponse = (
     response: AxiosResponse<AccountLoginResponse>,
   ) => {
+    console.log(response)
     const userAuth = {
       token: response?.data?.token
     }
 
     const userInfo = userAuth?.token ? jwtDecode(userAuth.token) : null
 
+    console.log(JSON.stringify(userAuth))
     localStorage.setItem(USER_AUTH_KEY, JSON.stringify(userAuth))
     setUserAuth(userAuth)
     setUserInfo(userInfo)
